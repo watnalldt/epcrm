@@ -1,0 +1,80 @@
+
+ /*-----------------------------------
+# START CONFIGURATION
+-----------------------------------*/
+ /* WHOLE PAGE */
+ * { box-sizing: border-box; }
+
+ /* FULL HEIGHT FLEX BODY */
+ body {
+      padding: 0; margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+ /* ALLOW MAIN TO FILL HEIGHT */
+ #pageMain { flex-grow: 1; }
+
+/*--------------------------
+# Buttons in Navbar
+------------------------- */
+#btn-nav {
+    width: 90px;
+    float: right;
+    margin-right: 25px;
+}
+
+/* Button 'Enter to login to CRM */
+#btn-enter {
+    width: 90px;
+}
+
+
+
+/*--------------------------
+# Errors 404 and 500
+------------------------- */
+/* Error Position */
+.error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+/* Error Text Levels */
+.error-txt1 {
+  font-size: 18px;
+}
+
+.error-txt2 {
+  font-size: 20px;
+}
+
+.error-404 {
+  font-size: 120px;
+}
+
+/*--------------------------
+# Login Page
+------------------------- */
+.login-border {
+  border-top: .4rem solid green;
+  border-bottom: .4rem solid green;
+
+  border-radius: 10px;
+
+}
+
+/* ----------------------
+# DATATABLES
+-------------------------*/
+
+
+
+thead input {
+    width: 100%;
+    text-align: center;
+
+}

@@ -1,0 +1,45 @@
+{% extends '_partials/dashboard_base.html' %}
+
+{% block html_title %} {{ request.user.name }} | {{ html_title }} {% endblock html_title %}
+
+{% block content %}
+  <div class="container mt-3">
+    <h5 class="text-center"><i class="fa-solid fa-user-group"></i>&nbsp;{{ request.user.name }}&nbsp;Clients List</h5>
+    <br>
+    <table id="example" class="table table-bordered" style="text-center">
+      <thead class ="table-success">
+        <tr>
+
+          <th>Client Name</th>
+          <th>Client Manager</th>
+          <th></th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+        {% if client_list %}
+
+
+          {% for client in client_list %}
+            <tr>
+
+              <td>{{ client.client }}</td>
+              <td></td>
+              <td> <a href="{% url 'clients:am_clients_contracts' client.pk %}" class="btn btn-success text-center"><i class="fa-solid fa-eye"></i></a></td>
+            </tr>
+          {% endfor %}
+
+
+        {% endif %}
+
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+
+{% endblock content %}

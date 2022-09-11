@@ -1,0 +1,72 @@
+{% extends '_partials/dashboard_base.html' %}
+{% load static i18n %}
+{% block html_title %} {{ html_title }} {% endblock html_title %}
+
+{% block content %}
+
+
+  <br>
+  <h5 style="text-align: center;"><i class="fa-solid fa-user"></i>&nbsp;Client: {{ contract.client}}</h5>
+  <hr>
+  <h5 class="text-center"><i class="fa-regular fa-address-card"></i>&nbsp;Business Name: {{ contract.business_name | title}}</h5>
+  <div class="card-group">
+
+    <div class="card">
+
+      <div class="card-body">
+        <h6 class="card-title"><i class="fa-solid fa-location-dot"></i>&nbsp; Details</h6>
+        <hr>
+        <p class="card-text">Dwellant ID {{ contract.dwellent_id }}</p>
+        <p class="card-text">Bid ID {{ contract.bid_id }}</p>
+        <p class="card-text">Site Address: {{ contract.site_address |title }}</p>
+        <p class="card-text">Building Name: {{ contract.building_name }} </p>
+        {% if contract.account_number == None %}
+          <p>{% trans "" %}</p>
+        {% else %}
+          <p class="card-text">Account Number: {{ contract.account_number }}</p>
+        {% endif %}
+        <p class="card-text">Company Reg Number: {{ contract.company_reg_number }}</p>
+        <p class="card-text">Suppler: {{ contract.supplier }}</p>
+        <p class="card-text">Utility Type: {{ contract.utility }}</p>
+        {% if contract.vat == None %}
+          <p>{% trans 'Vat Rate: 0' %}</p>
+        {% else %}
+          <p class="card-text">VAT Rate: {{ contract.vat }}%</p>
+        {% endif %}
+        {% if contract.contract_end_date == None %}
+          <p>{% trans "Out of Contract" %}</p>
+
+        {% else %}
+          <p>Contract End Date: {{ contract.contract_end_date }} </p>
+        {% endif %}
+        <p class="card-text">Contract Start Date: {{ contract.contract_start_date }}</p>
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title"><i class="fa-solid fa-bolt"></i>&nbsp; Data</h6>
+        <hr>
+        <p class="card-text">Meter Serial Number: {{ contract.meter_serial_number }}</p>
+        <p class="card-text">MPAN/MPR: {{ contract.mpan_mpr }}</p>
+        <p class="card-text">Top Line: {{ contract.top_line }}</p>
+        <p class="card-text">EAC: {{ contract.eac }}</p>
+        {% if contract.smart_meter == None %}
+          {% trans 'No Smart Meter' %}
+        {% else%}
+          <p>Smart Meter: {{ contract.smart_meter }}</p>
+        {% endif %}
+        <p class="card-text"></p>
+        <p class="card-text"></p>
+        <p class="card-text"></p>
+        <p class="card-text"></p>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3 text-center">
+    <a href="{% url 'contracts:contract_pdf_view' contract.id%}" target="_blank"><button class="btn btn-secondary btn-sm mt-3">Download PDF</button></a>
+  </div>
+
+{% endblock content %}
