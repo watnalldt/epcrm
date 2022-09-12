@@ -29,7 +29,7 @@ class AMClientContractsView(LoginRequiredMixin, HTMLTitleMixin, DetailView):
     #     context = super().get_context_data(**kwargs)
     #     contract = Contract.objects.get(pk=self.kwargs["pk"])
     #     client_contracts = Client.objects.filter(client=contract.client).filter(
-    #         account_manager__account_manager=self.request.user.id
+    #         account_manager__account_manager=self.request.user
     #     )
     #     context["client_contracts"] = client_contracts
     #     return context

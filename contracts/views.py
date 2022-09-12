@@ -22,6 +22,14 @@ class ContractListView(LoginRequiredMixin, HTMLTitleMixin, ListView):
     html_title = "Total Contracts"
 
 
+class ContractDetailView(LoginRequiredMixin, HTMLTitleMixin, DetailView):
+    model = Contract
+    template_name = "contracts/contract_detail.html"
+
+    def get_html_title(self):
+        return self.object.business_name
+
+
 class AMContractDetailView(LoginRequiredMixin, HTMLTitleMixin, DetailView):
     model = Contract
     template_name = "contracts/contract_detail.html"

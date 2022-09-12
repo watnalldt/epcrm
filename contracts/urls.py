@@ -7,6 +7,11 @@ app_name = "contracts"
 urlpatterns = [
     path("contract_list/", views.ContractListView.as_view(), name="contract_list"),
     path(
+        "contract_detail/<pk>",
+        views.ContractDetailView.as_view(),
+        name="contract_detail",
+    ),
+    path(
         "account_manager/contract_detail/<pk>/",
         views.AMContractDetailView.as_view(),
         name="am_contract_detail",

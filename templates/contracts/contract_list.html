@@ -5,6 +5,7 @@
 
 {% block content %}
   <div class="container">
+    <br>
 
     <table id="example" class="table table-bordered" style="font-size:14px;">
       <thead class ="table-success">
@@ -21,21 +22,22 @@
 
       </thead>
       <!--  Data from Backend -->
+
       <tbody>
         <tr>
           {% for contract in contracts %}
 
-            <td><a href="{{ contract.get_absolute_url }}">{{ contract.id }}</a></td>
-            <td>{{ contract.client_name }}</td>
-            <td>{{ contract.business_name | title | truncatechars:30 }}</td>
-            <td>{{ contract.supplier}}</td>
-            <td>{{contract.utility}}</td>
-            <td>{{ contract.mpan_mpr}}</td>
-            {% if contract.is_ooc %}
-              <td>{% trans "Out of Contract" %}</td>
-            {% else %}
-              <td>{{ contract.contract_end_date }} </td>
-            {% endif %}
+            <td><a href="{% url 'contracts:contract_detail' contract.pk %}"</a>id</td>
+              <td>{{ contract.client }}</td>
+              <td>{{ contract.business_name | title | truncatechars:30 }}</td>
+              <td>{{ contract.supplier}}</td>
+              <td>{{contract.utility}}</td>
+              <td>{{ contract.mpan_mpr}}</td>
+              {% if contract.is_ooc %}
+                <td>{% trans "Out of Contract" %}</td>
+              {% else %}
+                <td>{{ contract.contract_end_date }} </td>
+              {% endif %}
             </tr>
           {% endfor %}
         </tbody>
